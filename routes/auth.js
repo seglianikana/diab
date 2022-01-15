@@ -11,7 +11,7 @@ const {
 } = require("../controllers");
 
 router
-    .post("/login",(req,res,next)=>handleUser(req,res,next), login)
+    .post("/login", login)
     .get("/check", (req, res) => res.json(req.user))
     .post("/register", handleUser, register)
     .get("/register",  (req,res,next)=>handleUser(req,res,next), getRegisterPage)

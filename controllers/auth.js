@@ -6,43 +6,31 @@ const path = require("path")
 const bcrypt = require("bcryptjs");
 const pug = require("pug")
 
-const {EXP, TOKEN_SECRET} = process.env
+const {JWT_SECRET} = process.env
 
 const login = async (req, res, next) => {
-    const {
-        password,
-        ...user
-    } = await User.findOne({email: req.body.email})
-        .select({
-            firstName: 1,
-            lastName: 1,
-            email: 1,
-            role: 1,
-            region: 1,
-            password: 1
-        })
-        .populate("region")
-        .map(d => d.toObject())
-        .orFail()
+    const {email, password} = req.body
+    console.log(req.body)
+    const foundUser = await User.findOne({email})
 
-    const validPass = await bcrypt.compare(req.body.password, password)
+    const validPass = await bcrypt.compare(password, foundUser.password)
     if (!validPass) {
         next(new Error("Invalid password"))
     }
 
-    const token = jwt.sign(user, TOKEN_SECRET, {expiresIn: EXP})
+    delete foundUser.password
+
+    const token = jwt.sign(foundUser, JWT_SECRET, {expiresIn: 10000000000})
     if (!token) {
         next(new Error("Couldn't sign the token"))
     }
 
-    const template = await pug.renderFile(path.resolve(__dirname, "../views/test.pug"), {})
-
     res.send({
         token,
-        user
+        user: foundUser
     })
-    res.setHeader("Content-Type", "text/html")
-    res.send(template)
+    const template = await pug.renderFile(path.resolve(__dirname, "../views/profile.pug"), {person: foundUser})
+    res.send(template);
 }
 
 const getRegisterPage = async (req, res) => {
@@ -51,7 +39,7 @@ const getRegisterPage = async (req, res) => {
 }
 
 const getLoginPage = async (req, res) => {
-    const template = await pug.renderFile(path.resolve(__dirname,  "../views/login.html" ), {})
+    const template = await pug.renderFile(path.resolve(__dirname, "../views/login.html"), {})
     res.send(template);
 }
 

@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  mongo:
+    image: mongo
+    environment:
+      MONGO_USERNAME: nastya
+      MONGO_PASSWORD: rootpassword
+    ports:
+      - '27017:27017'
+    volumes:
+      - app-db:/var/lib/mongo/data
+
+  app:
+    build:
+      context: .
+    environment:
+      MONGO_USERNAME: nastya
+      MONGO_PASSWORD: rootpassword
+      DB_HOST: 127.0.0.1
+    depends_on:
+      - mongo
+    ports:
+      - '3000:3000'
+
+volumes:
+  app-db:

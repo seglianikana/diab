@@ -1,0 +1,24 @@
+extends header.pug
+
+div
+    .search-box
+        input(type='text' placeholder='Натисніть, щоб шукати..')
+        .search-btn
+            i.fas.fa-search
+        form
+            ol
+                li
+                    label.question(for='feedback1')
+                    input#feedback1(type='text' name='feedback')
+                    label.question(for='feedback2') &Mcy;&acy;&scy;&acy;(&gcy;)
+                    input#feedback2(type='number' name='feedback')
+                    input(type='submit' name='add' value='Додати')
+                    input(type='submit' name='delete' value='Видалити')
+                li
+                    label.question(for='feedback3')
+                    input#feedback3(type='text' name='feedback')
+                    label.question(for='feedback4') &Mcy;&acy;&scy;&acy;(&gcy;)
+                    input#feedback4(type='number' name='feedback')
+                    input(type='submit' name='add' value='Додати')
+                    input(type='submit' name='delete' value='Видалити')
+            button#submit &Rcy;&ocy;&zcy;&rcy;&acy;&khcy;&ucy;&vcy;&acy;&tcy;&icy;

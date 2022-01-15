@@ -1,0 +1,9 @@
+extends default
+
+block content
+  div.container
+      div.person
+        h2.person-name
+          | #{user.firstname} #{user.lastname}
+        a(href=`/profile?id=${user.id}`)
+          | View Profile

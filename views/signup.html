@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ua">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="http://localhost.com:9000/users">Головна</a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="nav__link active">
+                        <a class="nav__sublink" href="http://localhost:9000/custom">Тест</a>
+                    </li>
+                    <li class="nav__link">
+                        <a class="nav__sublink" href="http://localhost.com:9000">Денний раціон</a>
+                    </li>
+                    <li class="nav__link">
+                        <a class="nav__sublink" href="http://localhost.com:9000">Особистий кабінет</a>
+                        <ul class="nav__drop__menu">
+                            <li>
+                                <a class="nav__menu__content" href=`http://localhost.com:9000/users`>Профіль</a>
+                            <li>
+                                <a class="nav__menu__content" href="http://localhost.com:9000/custom/lose">Результати тесту</a>
+
+                            </li>
+                            <li>
+                                <a class="nav__menu__content" href="">Налаштування</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="container">
+        <div class="form">
+            <p>Зареєструйтеся</p>
+            <form action="http://localhost:9000/auth/register" method="post">
+                <input type="text" name="firstName" placeholder="Ім'я">
+                <input type="text" name="lastName" placeholder="Прізвище">
+                <input type="text" name="email" placeholder="E-mail">
+                <input type="password" name="password" placeholder="Пароль">
+                <input type="password" name="password_confirmation" placeholder="Підтвердіть пароль" id="password-check">
+                <button>Зареєструватися</button>
+                <p class="message">Вже є акаунт? <a href="login.html">Увійдіть</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

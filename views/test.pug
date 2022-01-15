@@ -1,0 +1,21 @@
+extends header.pug
+
+.quiz-body
+    #quiz.quiz-container
+        .quiz-header
+            h2#question Question Text
+            ul
+                li
+                    input#a.answer(type='radio' name='answer')
+                    label#a_text(for='a') Answer
+                li
+                    input#b.answer(type='radio' name='answer')
+                    label#b_text(for='b') Answer
+                li
+                    input#c.answer(type='radio' name='answer')
+                    label#c_text(for='c') Answer
+                li
+                    input#d.answer(type='radio' name='answer')
+                    label#d_text(for='d') Answer
+        button#submit.quiz-button Submit
+script(src='script.js')

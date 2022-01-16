@@ -19,12 +19,6 @@ mongoose.connect(MONGO_URL, {
 
 const port_number = process.env.PORT || 8080;
 
-const instance = app.listen(Number(port_number), SERVER_HOST, () => {
-    console.info("Available on:", `${SERVER_HOST}:${port_number}`)
-});
 
-instance.on("listening", () =>
-    console.info("Available on:", `${SERVER_HOST}:${port_number}`)
-);
-instance.on("error", error => console.error(error));
+app.listen(port_number)
 

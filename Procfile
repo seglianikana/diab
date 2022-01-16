@@ -1,1 +1,1 @@
-web: npm install; nodemon runserver.js
+web: npm install; node runserver.js

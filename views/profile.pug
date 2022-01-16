@@ -5,11 +5,6 @@ block header
 block content
   div.profile
     div.profile-details
-      h1.profile-name
-        | #{person.firstname} #{person.lastname}
-      h2.profile-tagline
-        | #{person.tagline}
-      p.profile-bio
-        | #{person.bio}
+        h1.profile-name#{person.firstname} #{person.lastname}
       a.button.button-twitter(href=`${person.twitter}`)
-        | Follow me on Twitter
+        Follow me on Twitter

@@ -43,11 +43,11 @@
 <div class="container">
     <div class="form" id="form">
         <p>Увійдіть в особистий кабінет</p>
-        <form action="http://127.0.0.1:8080/auth/login" method="Post">
+        <form action="http://localhost:8080/auth/login" method="Post">
             <label for="email">email</label><input type="text" name="email" placeholder="E-mail" id="email">
             <label for="password">password</label><input type="password" id="password" name="password"/>
             <button type="submit">Увійти</button>
-            <p class="message">Не зареєстровані? <a href="signup.html">Створіть акаунт</a></p>
+            <p class="message">Не зареєстровані? <a href="http://localhost:8080/auth/register">Створіть акаунт</a></p>
         </form>
     </div>
 </div>

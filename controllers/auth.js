@@ -11,7 +11,7 @@ const {JWT_SECRET} = process.env
 const login = async (req, res, next) => {
     const {email, password} = req.body
     console.log(req.body)
-    const foundUser = await User.findOne({email})
+    const foundUser = (await User.findOne({email})).toObject()
 
     const validPass = await bcrypt.compare(password, foundUser.password)
     if (!validPass) {
@@ -21,16 +21,12 @@ const login = async (req, res, next) => {
     delete foundUser.password
 
     const token = jwt.sign(foundUser, JWT_SECRET, {expiresIn: 10000000000})
+
     if (!token) {
         next(new Error("Couldn't sign the token"))
     }
-
-    res.send({
-        token,
-        user: foundUser
-    })
-    const template = await pug.renderFile(path.resolve(__dirname, "../views/profile.pug"), {person: foundUser})
-    res.send(template);
+    res.set('Authorization', token)
+    res.render("index", { user: foundUser});
 }
 
 const getRegisterPage = async (req, res) => {

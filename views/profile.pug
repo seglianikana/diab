@@ -5,6 +5,6 @@ block header
 block content
   div.profile
     div.profile-details
-        h1.profile-name#{person.firstname} #{person.lastname}
+        h1(style={color: 'red'}).profile-name#{person.firstname} #{person.lastname}
       a.button.button-twitter(href=`${person.twitter}`)
         Follow me on Twitter

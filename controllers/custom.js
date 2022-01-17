@@ -16,9 +16,9 @@ const testUnsuccess = async (req, res) => {
 
 const test = async (req, res) => {
     const {user} = req.body
-    res.render("index", {
+    res.render("test", {
         title: "Homepage",
-        user: user
+        user: user?user:null
       })
 }
 

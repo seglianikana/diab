@@ -1,5 +1,18 @@
-extends header.pug
-
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title &Rcy;&iecy;&zcy;&ucy;&lcy;&softcy;&tcy;&acy;&tcy;&icy; &tcy;&iecy;&scy;&tcy;&ucy;
+    link(rel='stylesheet' href='css/style.css')
+    script(src='script.js')
+header
+    .wrapper
+        nav
+            ul
+                li.nav__link
+                        li
+                            a.nav__menu__content(href='https://site-db-kpi-pma-seglyanik.herokuapp.com/auth/login') &Pcy;&rcy;&ocy;&fcy;&iukcy;&lcy;&softcy;
 .quiz-body
     #quiz.quiz-container
         .quiz-header
@@ -18,4 +31,4 @@ extends header.pug
                     input#d.answer(type='radio' name='answer')
                     label#d_text(for='d') Answer
         button#submit.quiz-button Submit
-script(src='script.js')
+

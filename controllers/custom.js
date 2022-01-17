@@ -3,9 +3,10 @@ const path = require("path");
 const asyncHandler = require("express-async-handler");
 
 const testSuccess = async (req, res) => {
-    const template = await pug.renderFile(path.resolve(__dirname, "../views/test-won.html"), {})
-    res.send(template);
-    res.end()
+    res.render("count", {
+        title: "Homepage",
+        user: req.user
+    })
 }
 
 const testUnsuccess = async (req, res) => {

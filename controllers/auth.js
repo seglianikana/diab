@@ -13,6 +13,11 @@ const login = async (req, res, next) => {
     console.log(req.body)
     const foundUser = (await User.findOne({email})).toObject()
 
+    if(!foundUser){
+        const template = await pug.renderFile(path.resolve(__dirname, "../views/login.html"), {})
+        res.send(template);
+    }
+
     const validPass = await bcrypt.compare(password, foundUser.password)
     if (!validPass) {
         next(new Error("Invalid password"))

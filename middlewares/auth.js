@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken')
 const pug = require("pug");
 const path = require("path");
-const secret = process.env.JWT_SECRET
+const secret = "fsfdsf"
 
 module.exports = function isAuth(req, res, next) {
     const token = req.header('Authorization')

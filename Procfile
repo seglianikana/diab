@@ -1,1 +1,1 @@
-web: npm install; node runserver.js
+web: npm install; bin/start-nginx node runserver.js

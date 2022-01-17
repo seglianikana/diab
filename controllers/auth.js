@@ -6,7 +6,7 @@ const path = require("path")
 const bcrypt = require("bcryptjs");
 const pug = require("pug")
 
-const {JWT_SECRET} = process.env
+const JWT_SECRET = "fsfdsf"
 
 const login = async (req, res, next) => {
     const {email, password} = req.body
@@ -26,7 +26,8 @@ const login = async (req, res, next) => {
         next(new Error("Couldn't sign the token"))
     }
     res.set('Authorization', token)
-    res.render("index", { user: foundUser});
+    req.user = foundUser
+    res.render("index");
 }
 
 const getRegisterPage = async (req, res) => {

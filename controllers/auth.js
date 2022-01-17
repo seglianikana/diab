@@ -27,7 +27,7 @@ const login = async (req, res, next) => {
     }
     res.set('Authorization', token)
     req.user = foundUser
-    res.render("index");
+    res.render("index",{user:foundUser});
 }
 
 const getRegisterPage = async (req, res) => {

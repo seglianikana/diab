@@ -17,11 +17,11 @@ const {
 router
     .post("/", isPermitted(["admin"]), createUser)
     .get("/remove/:id", isPermitted(["admin"]), deleteUser)
-    .put(   "/:id", editUser)
+    .put("/:id", editUser)
     .get("/:id",getUserProfile)
-    .post("/", isPermitted(["admin"]), createUser)
-    .put("/",isPermitted(['admin']), changePassword)
-    .get("/", isPermitted(["admin"]), getUserList)
+    .post("/create", isPermitted(["admin"]), createUser)
+    .put("/update",isPermitted(['admin']), changePassword)
+    .get("/list", isPermitted(["admin"]), getUserList)
 
 
 module.exports = router;
